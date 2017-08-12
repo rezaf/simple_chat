@@ -68,10 +68,13 @@ PLATFORMS
 DEPENDENCIES
   pry
   rack-test
-  rspec
-  sinatra
-  sinatra-activerecord
+  rspec (~> 3.6)
+  sinatra (~> 2.0.0)
+  sinatra-activerecord (~> 2.0.13)
   thin
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.15.3
