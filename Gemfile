@@ -4,6 +4,8 @@ ruby '~> 2.4.1'
 
 gem 'sinatra', '~> 2.0.0'
 gem 'sinatra-activerecord', '~> 2.0.13'
+gem 'sqlite3'
+gem 'rake'
 gem 'thin'
 
 group :test do
