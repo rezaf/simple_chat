@@ -1,5 +1,6 @@
-require 'sinatra'
-require 'sinatra/activerecord'
+require 'bundler'
+
+Bundler.require
 
 set :port, 9000
 set :database, {adapter: "sqlite3", database: "simple_chat.sqlite3"}
