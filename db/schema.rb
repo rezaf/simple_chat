@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170813052403) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id"
+  add_index "messages", ["sender_id"], name: "index_messages_on_sender_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false

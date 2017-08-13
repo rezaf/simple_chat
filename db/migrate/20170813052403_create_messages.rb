@@ -4,6 +4,8 @@ class CreateMessages < ActiveRecord::Migration
       t.references :sender, null: false
       t.references :recipient, null: false
       t.text :body, null: false
+      t.index :sender_id
+      t.index :recipient_id
 
       t.timestamps null: false
     end
