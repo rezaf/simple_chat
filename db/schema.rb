@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,20 +14,19 @@
 ActiveRecord::Schema.define(version: 20170813052403) do
 
   create_table "messages", force: :cascade do |t|
-    t.integer "sender_id", null: false
-    t.integer "recipient_id", null: false
-    t.text "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
-    t.index ["sender_id"], name: "index_messages_on_sender_id"
+    t.integer  "sender_id",    null: false
+    t.integer  "recipient_id", null: false
+    t.text     "body",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  create_table "user", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_user_on_name", unique: true
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
 
 end

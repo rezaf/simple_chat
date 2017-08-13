@@ -1,6 +1,7 @@
 require 'bundler'
-
 Bundler.require
+
+require_rel 'models'
 
 set :port, 9000
 set :database, {adapter: "sqlite3", database: "simple_chat.sqlite3"}
