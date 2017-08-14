@@ -21,10 +21,15 @@ post '/messages' do
   sender = User.find_by(name: params[:sender])
   recipient = User.find_by(name: params[:recipient])
 
-  if sender && recipient
-    Message.create!(sender: sender, recipient: recipient, body: params[:body])
-    {status: 'Success!'}.to_json
+  message = Message.create(
+    sender: sender,
+    recipient: recipient,
+    body: params[:body]
+  )
+
+  if message.errors.empty?
+    {status: 'Message sent!'}.to_json
   else
-    {error: 'User does not exist!'}.to_json
+    message.errors.to_json
   end
 end
