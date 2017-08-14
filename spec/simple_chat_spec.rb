@@ -8,7 +8,10 @@ RSpec.describe 'Simple Chat App' do
 
     context 'when user cannot be found' do
       it 'responds with error message' do
-
+        get '/user/1000/messages'
+        expect(JSON.parse(last_response.body)).to eq(
+          {'errors' => 'Cannot find user!'}
+        )
       end
     end
   end
@@ -22,7 +25,17 @@ RSpec.describe 'Simple Chat App' do
 
     context 'when message cannot be created' do
       it 'responds with error message' do
+        json = {sender: 'No one', recipient: 'No body', body: 'Hi Jon!'}
+        post '/messages', json, {CONTENT_TYPE: 'application/json'}
 
+        expect(JSON.parse(last_response.body)).to eq(
+          {
+            'errors' => {
+              'sender' => ["can't be blank"],
+              'recipient' => ["can't be blank"]
+            }
+          }
+        )
       end
     end
   end

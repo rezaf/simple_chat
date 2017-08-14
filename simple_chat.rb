@@ -11,16 +11,20 @@ set :database, {
 }
 
 get '/user/:id/messages' do
+  content_type :json
+
   user_id = params[:id]
 
   if user = User.find_by(id: user_id)
     user.messages.to_json
   else
-    {error: 'Cannot find user!'}.to_json
+    {errors: 'Cannot find user!'}.to_json
   end
 end
 
 post '/messages' do
+  content_type :json
+
   sender = User.find_by(name: params[:sender])
   recipient = User.find_by(name: params[:recipient])
 
@@ -33,6 +37,6 @@ post '/messages' do
   if message.errors.empty?
     {status: 'Message sent!'}.to_json
   else
-    message.errors.to_json
+    {errors: message.errors}.to_json 
   end
 end
