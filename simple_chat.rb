@@ -1,5 +1,6 @@
 require 'bundler'
 Bundler.require
+Bundler.require(settings.environment)
 
 require_rel 'models'
 
