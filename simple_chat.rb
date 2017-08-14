@@ -5,7 +5,7 @@ Bundler.require(settings.environment)
 require_rel 'models'
 
 set :port, 9000
-set :database, {adapter: "sqlite3", database: "simple_chat.sqlite3"}
+set :database, {adapter: 'sqlite3', database: 'simple_chat.sqlite3'}
 
 get '/user/:id/messages' do
   user_id = params[:id]
