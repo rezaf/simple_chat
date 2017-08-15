@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
+  # Returns a hash of the user's messages
+  # @return [Hash]
   def messages
     all_messages = {sent: [], received: []}
 

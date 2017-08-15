@@ -10,6 +10,7 @@ set :database, {
   database: "simple_chat_#{settings.environment}.sqlite3"
 }
 
+# Responds with all of a user's messages
 get '/user/:id/messages' do
   content_type :json
 
@@ -22,6 +23,7 @@ get '/user/:id/messages' do
   end
 end
 
+# Persists a new message with valid sender and recipient to DB
 post '/messages' do
   content_type :json
 
@@ -37,6 +39,6 @@ post '/messages' do
   if message.errors.empty?
     {status: 'Message sent!'}.to_json
   else
-    {errors: message.errors}.to_json 
+    {errors: message.errors}.to_json
   end
 end
