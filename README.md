@@ -1,6 +1,6 @@
 SimpleChat
 =========
-A simple Sinatra app providing a REST API for async messaging
+A simple Sinatra app providing a RESTful API for async messaging
 
 Installation Guide
 ------------------
@@ -17,9 +17,9 @@ You can run the app with: `ruby simple_chat.rb`
 
 Two endpoints are exposed:
 - `/user/:id/messages`
-  - You can `GET` a list messages in JSON format for a specific user id from this endpoint
+  - You can `GET` a list messages in JSON format for a specific user id from this endpoint.
 - `/messages`
-  - You can `POST` a message here
+  - You can `POST` a message here.
 
 Running the specs
 -----------------
@@ -49,5 +49,6 @@ API
     ]
 }
 ```
+All fields are `String` objects, except timestamps, which are `Time` objects.
 
-- `/messages` accepts messages in multipart form encoding with the following string fields: `sender`, `recipient`, `body`
+- `/messages` accepts messages in multipart form encoding with the following `String` fields: `sender`, `recipient`, `body`
