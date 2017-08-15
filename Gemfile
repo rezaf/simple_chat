@@ -13,6 +13,7 @@ gem 'require_all'
 group :test do
   gem 'rspec', '~> 3.6'
   gem 'rack-test'
+  gem 'database_cleaner'
 end
 
 gem 'pry', group: [:development, :test]
