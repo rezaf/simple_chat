@@ -37,8 +37,10 @@ post '/messages' do
   )
 
   if message.errors.empty?
+    logger.info 'Message successfuly sent.'
     {status: 'Message sent!'}.to_json
   else
+    logger.info 'Message send faild.'
     {errors: message.errors}.to_json
   end
 end
