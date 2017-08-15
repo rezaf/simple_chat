@@ -1,4 +1,5 @@
 RSpec.describe 'User' do
+
   describe 'validations' do
     it 'validates name for presence' do
       valid_user = User.new(name: 'John')
@@ -42,4 +43,5 @@ RSpec.describe 'User' do
       )
     end
   end
+
 end
