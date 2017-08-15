@@ -27,3 +27,27 @@ First setup and seed the test database with:
 `RACK_ENV=test rake db:setup`
 
 Then run: `rspec`
+
+API
+---
+- `/user/:id/messages` returns a hash in the following format:
+```json
+{
+    "sent": [
+        {
+            "recipient": "recipient name",
+            "body": "message body",
+            "timestamp": "timestamp"
+        }
+    ],
+    "received": [
+        {
+            "sender": "sender name",
+            "body": "message body",
+            "timestamp": "timestamp"
+        }
+    ]
+}
+```
+
+- `/messages` accepts messages in multipart form encoding with the following string fields: `sender`, `recipient`, `body`
